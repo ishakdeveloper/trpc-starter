@@ -25,6 +25,7 @@ export default function TrpcProvider({
 
   const [trpcClient] = useState(() =>
     trpc.createClient({
+      transformer: superjson,
       links: [
         httpBatchLink({
           url: `${process.env.NEXT_PUBLIC_API_URL}/trpc`,
